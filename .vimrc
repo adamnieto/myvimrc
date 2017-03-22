@@ -150,7 +150,7 @@ augroup vimrc-wrapping
       autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
     augroup END
 
-" ================ VIMDEVICONS =============================================
+" ================ VIMDEVICONS ==============================
 set guifont=Knack\ Nerd\ Font\ Complete\ Types:h16
 let g:airline_powerline_fonts = 1
 "Helps with issues  concealing brackes"
