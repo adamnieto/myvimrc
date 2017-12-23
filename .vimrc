@@ -1,4 +1,4 @@
-" Use Vim settings, rather then Vi settings (much better!).
+""Vim settings, rather then Vi settings (much better!).
 " " This must be first, because it changes other options as a side effect.
 set nocompatible               " be iMproved, requires
 set laststatus=2
@@ -16,13 +16,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'scrooloose/NERDTree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'vim-polyglot'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'wincent/command-t'
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'yggdroot/indentline'
 call vundle#end()
 
 " ================ General Config ===================="
@@ -41,12 +43,13 @@ filetype plugin indent on
 set hidden
 set backspace=2
 " this enables true color for one dark theme"
-if has('patch-7.4.1778')
-    set guicolors
-  endif
-  if has('nvim')
-      let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
+"if has('patch-7.4.1778')
+  "  set guicolors
+ " endif
+"  if has('nvim')
+ "     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"    endif
+"
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 ""If you're using tmux version 2.2 or later, you can remove the outermost
@@ -99,7 +102,7 @@ set autoindent
 set smartindent
 set smarttab
 set shiftwidth=4
-            set softtabstop=4
+set softtabstop=4
 set tabstop=4
 set expandtab
 
@@ -141,19 +144,18 @@ set smartcase       " ...unless we type a capital
  if !exists('*s:setupWrapping')
    function s:setupWrapping()
        set wrap
-                       set wm=2
-               set textwidth=79
-                 endfunction
-                 endif "" txt
+       set wm=2
+       set textwidth=79
+   endfunction
+endif "" txt
 augroup vimrc-wrapping
     autocmd!
       autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
     augroup END
 
-" ================ VIMDEVICONS =============================================
-set guifont=Knack\ Nerd\ Font\ Complete\ Types:h16
-let g:airline_powerline_fonts = 1
-"Helps with issues  concealing brackes"
-if exists('g:loaded_webdevicons')
-    call webdevicons#refresh()
-endif
+"============ Light Line Configurations =================
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+
+
